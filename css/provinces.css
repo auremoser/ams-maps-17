@@ -1,0 +1,23 @@
+#layer {
+  polygon-fill: ramp([name], (#5F4690, #1D6996, #38A6A5, #0F8554, #73AF48, #EDAD08, #E17C05, #CC503E, #94346E, #6F4070, #565b8c), ("Drenthe", "Flevoland", "Friesland (Fryslân)", "Gelderland", "Groningen", "Limburg", "Noord-Brabant", "Noord-Holland", "Overijssel", "Utrecht"), "=");
+  line-width: 1;
+  line-color: #86cadf;
+  line-opacity: 0.5;
+}
+#layer::bigoutline {
+  line-color: #9ed1dc;
+  line-width: 20;
+	}
+#layer::labels {
+  text-name: [name];
+  text-face-name: 'Open Sans Regular';
+  text-size: 14;
+  text-fill: #FFFFFF;
+  text-label-position-tolerance: 0;
+  text-halo-radius: 1;
+  text-halo-fill: #6F808D;
+  text-dy: -10;
+  text-allow-overlap: true;
+  text-placement: point;
+  text-placement-type: dummy;
+}
