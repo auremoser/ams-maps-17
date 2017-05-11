@@ -1,5 +1,5 @@
 ## Web Mapping with Open Source Tools
-### [Graphic Hunters](ipam.ucla.edu/programs/long-programs/culture-analytics/)
+### [Graphic Hunters](http://graphichunters.nl/meet-up-met-aurelia-moser/)
 #### Aurelia Moser, [@auremoser](https://twitter.com/auremoser), aurelia@mozillafoundation.org
 **May 11th, 2017**
 
@@ -9,7 +9,7 @@ Instagram [@chazhutton](https://medium.com/@chazhutton/drawing-the-map-of-every-
 
 Find this document here:
 
-* Script: <https://github.com/auremoser/ams-maps-17/workshop.md>
+* Script: <http://tinyurl.com/kc23kqc>
 * Github: <https://github.com/auremoser/ams-maps-17>
 * Slides: <https://mzl.la/ams-maps>
 
