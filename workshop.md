@@ -1,5 +1,5 @@
 ## Web Mapping with Open Source Tools
-###[Graphic Hunters](ipam.ucla.edu/programs/long-programs/culture-analytics/)
+### [Graphic Hunters](ipam.ucla.edu/programs/long-programs/culture-analytics/)
 #### Aurelia Moser, [@auremoser](https://twitter.com/auremoser), aurelia@mozillafoundation.org
 **May 11th, 2017**
 
@@ -48,9 +48,9 @@ This workshop will be a light introduction to mapping with open source tools, fe
 
 ### Mapping Basics
 
-#### YOU ARE [HERE](https://auremoser.cartodb.com/viz/66fc4e20-2689-11e6-8b37-0ecfd53eb7d3/public_map).
+#### YOU ARE [HERE](https://map.what3words.com/issue.distract.minds).
 
-![LA](https://raw.githubusercontent.com/auremoser/ipam-16/master/img/cali-full.png)
+![what 3 words](https://raw.githubusercontent.com/auremoser/ams-maps-17/master/img/what3words.png)
 
 Where are you? If I gave you directions here, you could say you were at:
 
@@ -114,7 +114,7 @@ Source: [Geogia County Car Crash Counts](http://bl.ocks.org/auremoser/6236a61e53
 
 **POPULATION TRACKING**
 
-![AMS trend map]()
+![AMS trend map](https://raw.githubusercontent.com/auremoser/ams-maps-17/master/img/trend-map-nl.png)
 
 Source: [Trends Map](https://www.trendsmap.com/)
 
