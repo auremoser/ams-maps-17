@@ -246,7 +246,7 @@ You have myriad customization options in the in-browser editor:
 * `popup` - create hovers, tooltips with information from your datatables
 * `legend` - create keys for your map
 
-**DATA IMPORT**
+**Data Import**
 
 Let's say I import the Netherlandish provinces polygons, those are available in the `data/` folder of with workshop repo: `n-provinces.geojson`. 
 
@@ -254,7 +254,7 @@ You can also navigate to the Data Library in Carto and find some prefab datasets
 
 ![Data Library](https://raw.githubusercontent.com/auremoser/ipam-16/master/img/library.png)
 
-**CUSTOMIZING UI + CARTOCSS**
+**Customizing UI + CartoCSS**
 
 You can customize how those polygons appear with CartoCSS, a CSS flavored language for styling cartographic projects.
 
@@ -269,7 +269,7 @@ I've loaded some example css in the `css/` folder of this workshop repo, that yo
 
 ![css](https://raw.githubusercontent.com/auremoser/ams-maps-17/master/img/ams-regions-css.png)
 
-**QUERYING IN SQL**
+**Querying in SQL**
 
 Say you want to reproject the Netherlands in the appropriate ESPG code because the typical Mercator Projection isn't satisfying. 
 
@@ -277,7 +277,7 @@ Carto supports PostGIS and SQL functional manipulation of your data in the cloud
 
 ![sql](https://raw.githubusercontent.com/auremoser/ams-maps-17/master/img/ams-reproj2.png)
 
-**CUSTOMIZING BASEMAPS**
+**Customizing Basemaps**
 
 You can then change the basemap to a color (`#000000`) so that the projection doesn't look terrible with the underlying mercator country outlines.
 
@@ -300,7 +300,7 @@ You can read more about the [Carto APIs and JS Library here](https://carto.com/d
 
 Use also the [CartoDB Uploader](https://www.npmjs.com/package/cartodb-uploader) package available in NPM for working in Node.js
 
-**PYTHON**
+**Python**
 
 Use the [Carto Python module](https://github.com/Vizzuality/cartodb-python) to create and update tables; check out [Andy's Jupyter demos](http://nbviewer.ipython.org/gist/ohasselblad/b2475c95a23c5e070264).
 
