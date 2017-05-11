@@ -39,11 +39,10 @@ This workshop will be a light introduction to mapping with open source tools, fe
 		+ Partner Graphics: Graphs + Charts
 4. **Building a Visual Narrative**
 	+ Part 1: [Spatial Analysis](https://auremoser.carto.com/builder/f401fa80-2699-11e6-a0ea-0e3ff518bd15/embed)
-		+ [Earthquake Selector Block](http://bl.ocks.org/ohasselblad/b1a6290d109391e75880)
 	+ Part 2: [Special Styling](https://auremoser.carto.com/builder/3547901b-c69d-4375-b868-afbd86e651b3/embed)
 5. **Resources**
 
-### Mapping Basics
+## Mapping Basics
 
 #### YOU ARE [HERE](https://map.what3words.com/issue.distract.minds).
 
@@ -63,7 +62,7 @@ We describe locations with a [spatiotemporal notation](https://en.wikipedia.org/
 
 > 52.372403, 4.90244
 
-####Types + Topics
+### Types + Topics
 
 ![Gallery of maps](https://raw.githubusercontent.com/auremoser/gdi-webmap/master/img/gallery.jpg)
 
@@ -79,7 +78,7 @@ There are many different types of map you can make, browse [this gallery](https:
 + **Torque** -- temporal visualization of data
 + **Heat** -- more fluid map of concentration; emphasis on far over near-view
 
-**DYNAMIC MAPS**
+#### Dynamic Maps
 
 ![Types of Visualizations](https://raw.githubusercontent.com/auremoser/images/master/1-vis-types.png)
 
@@ -89,7 +88,7 @@ Source: [The Data Visualization Catalogue](http://www.datavizcatalogue.com/).
 
 Source: [Time Travel Between Counties](http://mdweaver.github.io/times_year/), Carto.JS
 
-**DATA SEARCH TOOLS**
+#### Data Search Tools
 ![GDELT Geographic News Search Tool](https://raw.githubusercontent.com/auremoser/140realtime/master/img/gdelt.jpg)
 
 Source: [GDELT Geographic News Search Tool](http://gns.gdeltproject.org/)
@@ -98,18 +97,18 @@ Journalists have used [GDELT](http://gdeltproject.org/) data to [track wildlife 
 
 You can fork the GDELT hourly synced data set from the Carto DataLibrary and add it as a layer on your map or use the [Geographic Search Tool](http://blog.gdeltproject.org/announcing-gdelt-geographic-news-search/) linked above to search for tags of interest.
 
-**CHART GRAPHICS**
+#### Chart Graphics
 
 ![County Chart](https://raw.githubusercontent.com/auremoser/hasadna/master/img/chart.jpg)
 
 Source: [Geogia County Car Crash Counts](http://bl.ocks.org/auremoser/6236a61e5383ab0bc71d), C3.JS
 
-**COMPARISON NARRATIVE**
+#### Comparison Narrative
 
 ![Michael's Syrian Refugee visualization](https://raw.githubusercontent.com/auremoser/images/master/syria.jpg)
 [Map population by relative density](http://projects.aljazeera.com/2013/syrias-refugees/)
 
-**POPULATION TRACKING**
+#### Population Survey
 
 ![AMS trend map](https://raw.githubusercontent.com/auremoser/ams-maps-17/master/img/trend-map-nl.png)
 
@@ -126,7 +125,7 @@ Source: [Trends Map](https://www.trendsmap.com/)
 * [**ChartJS**](http://www.chartjs.org/): light library for creating charts and graphs
 * [**GDELT**](http://gdeltproject.org/): the global database of events languages and tones
 
-#### Anatomy of a WebMap
+### Anatomy of a WebMap
 
 ![Webmap Gif](https://raw.githubusercontent.com/auremoser/gdi-webmap/master/img/slippy.gif)
 
@@ -150,13 +149,9 @@ Data layers that populate on top of your basemap.
 
 With these languages, you can publish your map with the base tiles loaded and your data layers appropriately geocoded; with Javascript you can also add to the interactivity of your map, revealing metadata in the tooltips, for example.
 
-### Mapping Data
+## Mapping Data
 
-We'll be working with an assortment of vector point/line/polygon data:
-
-* **POLYGONS**: [Benelux Countries](https://github.com/deldersveld/topojson/blob/master/countries/belgium/benelux-countries.json)
-* **POINTS**: [Earthquake Centroids](http://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_month.csv)
-* **LINES**: [Elephant Migration Patterns](http://auremoser.cartodb.com/api/v2/sql?q=SELECT%20*%20FROM%20elephant_movements&format=geojson&filename=elephant_movements)
+We'll be working with an assortment of vector point/line/polygon data.
 
 Here are additional geo-spatial datasets you might want to play with:
 
@@ -170,7 +165,7 @@ Here are additional geo-spatial datasets you might want to play with:
 * [Benelux Countries JSON](https://github.com/deldersveld/topojson/blob/master/countries/belgium/benelux-countries.json)
 	* [Topojson converter](http://jeffpaine.github.io/geojson-topojson/)
 
-#### Data Collection & Syncing
+### Data Collection & Syncing
 
 We'll be collecting data from multiple sources. Most of which are available in [the repository](https://github.com/auremoser/ams-17/) where our data will be stored.
 
@@ -182,12 +177,12 @@ You can also store your data in Github, or in another service that makes it web 
 
 ![github](https://raw.githubusercontent.com/auremoser/ams-maps-17/master/img/benelux-git.png)
 
-### Mapping Tools
+## Mapping Tools
 ![Logos](https://raw.githubusercontent.com/auremoser/ipam-16/master/img/logos.png)
 
 There are loads of ways to approach a map here are a few approaches to mapping the same dataset.
 
-#### Map Making Exercise
+### Multi-Tool Exercise
 
 We can make a map with the province polygon data, or other data in the [data folder](https://github.com/auremoser/ams-maps-17/blob/master/data/nl_adm1.kmz) for this workshop.
 
@@ -209,7 +204,7 @@ We can make a map with the province polygon data, or other data in the [data fol
 * select map features if you would like then click on Import Features
 * explore changing the map features if you would like
 
-**Using CartoDB**
+**Using Carto**
 
 * <https://carto.com/>
 * create account if you don't already have a CartoDB account, [use this URL](https://carto.com/signup?plan=academy) to get boosted features
@@ -230,20 +225,7 @@ GeoJSON is a file format that is easily digestable by JavaScript. If you have a 
 * use `nl-provinces.geojson` for your geojson layer: <https://github.com/auremoser/ams-maps17/blob/master/data/nl-provinces.geojson>
 * explore changing the map features if you would like using Leaflet.js: <http://leafletjs.com/>
 
-### Map Examples in CartoDB
-+ [EuroBird Portal](http://www.eurobirdportal.org/ebp/en/#home/TRIGLA/r2013/tm/t2013/)
-+ [Alcatraz Escape Revisited](http://www.washingtonpost.com/news/morning-mix/wp/2014/12/15/the-alcatraz-escapees-could-have-survived-and-this-interactive-model-proves-it/)
-+ [LA Sheriff Election Results](http://graphics.latimes.com/2014-la-sheriff-primary-map/)
-+ [Starwars Galaxy Map](http://www.swgalaxymap.com/)
-+ [Demonstrations in Brazil](http://blog.cartodb.com/mapping-the-world-ongoing-demonstrations-in-brazil/)
-+ [Global Forest Watch](http://www.globalforestwatch.org/map/3/15.00/27.00/ALL/grayscale/loss,forestgain?begin=2001-01-01&end=2013-12-31&threshold=30)
-+ [Urban Reviewer](http://www.urbanreviewer.org/#map=12/40.7400/-73.9998&sidebar=plans)
-
-![urban-interface](https://raw.githubusercontent.com/auremoser/uofm-2015/master/img/urban.png)
-
-![urban-reviewer](https://raw.githubusercontent.com/auremoser/nicar-test/master/img/urban_reviewer_code_example.png)
-
-### Mapping Tools
+### Carto
 
 **Carto** is a Postgres database in the cloud, which means it handles a lot of your backend data needs and allows you to query for data and pull those data and basemap tiles into your front-end code; we'll be using this for the next half of the workshop.
 
