@@ -513,7 +513,7 @@ Sometimes you want to provide extra styling flair to maps, and you can do that i
 
 We'll do something not unlike this inspiration print map:
 
-![submarine cable map](https://raw.githubusercontent.com/auremoser/ams-maps-16/master/img/submarinecablemap.png)
+![submarine cable map](https://raw.githubusercontent.com/auremoser/ams-maps-17/master/img/submarinecablemap.png)
 
 
 ## Data + Tiles
@@ -589,9 +589,7 @@ We'll do something not unlike this inspiration print map:
   }
   ```
 
-<br>
-![africa countries](https://raw.githubusercontent.com/auremoser/ams-maps-16/master/img/africa-countries.png)
-<br>
+![africa countries](https://raw.githubusercontent.com/auremoser/ams-maps-17/master/img/africa-countries.png)
 
 ### Africa Styles
 
@@ -624,10 +622,6 @@ We'll do something not unlike this inspiration print map:
   }
 ```
 
-<br>
-![africa](https://github.com/CartoDB/cdmx-training/blob/master/03-cartography/exercises/img/africa.png)
-<br>
-
 #### Ocean Styles
 
 + In order to style *Ocean* layer:
@@ -645,10 +639,6 @@ We'll do something not unlike this inspiration print map:
 }
 ```
 
-<br>
-![ocean](https://github.com/CartoDB/cdmx-training/blob/master/03-cartography/exercises/img/ocean.png)
-<br>
-
 #### Basemap
 
 + Finally, go back to *LAYERS* pane to style the basemap:
@@ -656,7 +646,8 @@ We'll do something not unlike this inspiration print map:
   2. Set *COLOR* as *Source*
   3. Set `#c3d1c7` as *HEX* value.
 
-![africa basemap](https://raw.githubusercontent.com/auremoser/ams-maps-16/master/img/africa-basemap.png)
+
+![africa basemap](https://raw.githubusercontent.com/auremoser/ams-maps-17/master/img/africa-basemap.png)
 
 ## Publish
 
@@ -667,7 +658,7 @@ We'll do something not unlike this inspiration print map:
   3. Copy the link and paste it in a new browser tab: [https://auremoser.carto.com/builder/3547901b-c69d-4375-b868-afbd86e651b3/embed](https://auremoser.carto.com/builder/3547901b-c69d-4375-b868-afbd86e651b3/embed)
 
 <br>
-![map](https://github.com/CartoDB/cdmx-training/blob/master/03-cartography/exercises/img/map.png)
+![africa final map](https://raw.githubusercontent.com/auremoser/ams-maps-17/master/img/africa-final.png)
 <br>
 
 
