@@ -13,7 +13,7 @@ Find this document here:
 * Github: <https://github.com/auremoser/ams-maps-17>
 * Slides: <https://mzl.la/ams-maps>
 
-This workshop will be a light introduction to mapping with open source tools, featuring Open Street Map Data, CartoDB, Leaflet and other libraries for storing, analyzing and visualizing geospatial data.
+This workshop will be a light introduction to mapping with open source tools, featuring Open Street Map Data, Carto, Leaflet and other libraries for storing, analyzing and visualizing geospatial data.
 
 ### Outline
 1. **Mapping Basics**
@@ -24,7 +24,7 @@ This workshop will be a light introduction to mapping with open source tools, fe
 	+ Formats + Free Sources
 	+ Collecting, Sync, Storage
 3. **Mapping Tools**
-	+ Toolbox: Google, Mapbox, CartoDB, Leaflet
+	+ Toolbox: Google, Mapbox, Carto, Leaflet
 	+ Mapping in a GUI
 		+ Data Import
 		+ Customizing UI + CartoCSS
@@ -99,7 +99,7 @@ Source: [GDELT Geographic News Search Tool](http://gns.gdeltproject.org/)
 
 Journalists have used [GDELT](http://gdeltproject.org/) data to [track wildlife crime](http://news.nationalgeographic.com/2015/07/150706-wildlife-crime-technology-poaching-endangered-animals/), and the [spread of the Islamic State in the Middle East](http://foreignpolicy.com/2015/06/19/islamc-state-big-data-middle-east/) among other things.
 
-You can fork the GDELT hourly synced data set from the CartoDB DataLibrary and add it as a layer on your map or use the [Geographic Search Tool](http://blog.gdeltproject.org/announcing-gdelt-geographic-news-search/) linked above to search for tags of interest.
+You can fork the GDELT hourly synced data set from the Carto DataLibrary and add it as a layer on your map or use the [Geographic Search Tool](http://blog.gdeltproject.org/announcing-gdelt-geographic-news-search/) linked above to search for tags of interest.
 
 **CHART GRAPHICS**
 
@@ -137,19 +137,19 @@ Source: [Open Street Map](https://www.openstreetmap.org/)
 
 Maps are composed of:
 
-####1. Tiles (often)
+#### 1. Tiles (often)
 
 ![Stamen Tiles](https://raw.githubusercontent.com/auremoser/gdi-webmap/master/img/stamen.jpg)
 
 Tiles are 256x256 pixels squares that plot one next to the other to stitch together a pseudo-seamless image; the tiles draw dynamically as you focus and zoom in on your map to progressively build you a seemingly continuous canvas.
 
-####2. Feature Layers
+#### 2. Feature Layers
 
 Data layers that populate on top of your basemap.
 
 ![features](https://raw.githubusercontent.com/auremoser/extract-15/master/img/feature.jpg)
 
-####3. Javascript/HTML/CSS for rendering on the web
+#### 3. Javascript/HTML/CSS for rendering on the web
 
 With these languages, you can publish your map with the base tiles loaded and your data layers appropriately geocoded; with Javascript you can also add to the interactivity of your map, revealing metadata in the tooltips, for example.
 
@@ -196,7 +196,7 @@ Steps:
 * Look up the appropriate OSM tag in the OSM wiki
 * Search for "geological=outcrop" or whatever
 * Export your data as GeoJson or KML
-* Upload into CartoDB or another interface
+* Upload into Carto or another interface
 
 ![outcrop search](https://raw.githubusercontent.com/auremoser/ipam-16/master/img/outcrop.jpg)
 
@@ -364,9 +364,9 @@ Quick [outcrop map by type](http://cdb.io/1UPs2Nw).
 
 #### Mapping in a GUI
 
-#####You can sign-up for a [CartoDB Academy Account via this URL](https://cartodb.com/signup?plan=academy).
+##### You can sign-up for a [Carto Academy Account via this URL](https://carto.com/signup?plan=academy).
 
-The GUI interface for CartoDB looks as follows:
+The GUI interface for Carto looks as follows:
 ![dashboard](https://raw.githubusercontent.com/auremoser/extract-15/master/img/dash.jpg)
 ![data view](https://raw.githubusercontent.com/auremoser/ipam-16/master/img/cali-data.png)
 ![query view](https://raw.githubusercontent.com/auremoser/ipam-16/master/img/cali-query.png)
@@ -376,12 +376,11 @@ The GUI interface for CartoDB looks as follows:
 
 You have myriad customization options in the in-browser editor:
 
-* `sql` - run sql and postgis functions across your data
-* `wizard` - adjust the type, colors and fills in your map
-* `infowindow` - create hovers, tooltips with information from your datatables
-* `css` - customize the css and style of your map outside the wizard
-* `legends` - create keys for your map
-* `filters` - filter the data without sql
+* `data` - run sql and postgis functions across your data
+* `analysis` - adjust the type, colors and fills in your map
+* `style` - customize the css or style of your map with dropdowns/buttons
+* `popup` - create hovers, tooltips with information from your datatables
+* `legend` - create keys for your map
 
 **DATA IMPORT**
 
@@ -408,7 +407,7 @@ There are also a series of presets in the Wizard that write your css for you:
 
 Say you want to move Alaska and Hawaii into view because the typical Mercator Projection just isn't cutting it. 
 
-CartoDB supports PostGIS and SQL functional manipulation of your data in the cloud.
+Carto supports PostGIS and SQL functional manipulation of your data in the cloud.
 
 ![sql](https://raw.githubusercontent.com/auremoser/ipam-16/master/img/st-sql.png)
 
@@ -418,7 +417,7 @@ For the above, I made my basemap background one color (`#90cccb`), and added cou
 
 ![base](https://raw.githubusercontent.com/auremoser/ipam-16/master/img/st-base.png)
 
-Our `Positron` and `Dark Matter` basemaps are available for free in Leaflet and OpenLayers maps, as well as core CartoDB maps. Read more about that [here](https://carto.com/basemaps/), and check out documentation on the available CartoDB Basemaps can be found [here](https://github.com/CartoDB/cartodb/wiki/BaseMaps-available).
+Our `Positron` and `Dark Matter` basemaps are available for free in Leaflet and OpenLayers maps, as well as core Carto maps. Read more about that [here](https://carto.com/basemaps/), and check out documentation on the available Carto Basemaps can be found [here](https://github.com/CartoDB/cartodb/wiki/BaseMaps-available).
 
 #### Mapping in Code
 
@@ -426,18 +425,18 @@ Our `Positron` and `Dark Matter` basemaps are available for free in Leaflet and 
 
 **JS**
 
-You can read more about the [Carto APIs and JS Library here](http://docs.cartodb.com/cartodb-platform.html)
+You can read more about the [Carto APIs and JS Library here](https://carto.com/docs)
 
-* [CartoJS](http://docs.cartodb.com/cartodb-platform/cartodb-js.html) - JS library for interacting with CartoDB
-* [Maps API](http://docs.cartodb.com/cartodb-platform/maps-api.html) - generate public/private maps with data hosted on your CDB account
-* [SQL API](http://docs.cartodb.com/cartodb-platform/sql-api.html) - run sql in your code to dynamically filter/request/query your mapped data stored in CartoDB via http calls
-* [Import API](http://docs.cartodb.com/cartodb-platform/import-api.html) - push data to your CartoDB Account
+* [CartoJS](https://carto.com/docs/carto-engine/carto-js) - JS library for interacting with Carto
+* [Maps API](https://carto.com/docs/carto-engine/maps-api) - generate public/private maps with data hosted on your CDB account
+* [SQL API](https://carto.com/docs/carto-engine/sql-api) - run sql in your code to dynamically filter/request/query your mapped data stored in CartoDB via http calls
+* [Import API](https://carto.com/docs/carto-engine/import-api) - push data to your Carto Account
 
 Use also the [CartoDB Uploader](https://www.npmjs.com/package/cartodb-uploader) package available in NPM for working in Node.js
 
 **PYTHON**
 
-Use the [CartoDB Python module](https://github.com/Vizzuality/cartodb-python) to create and update tables; check out [Andy's Jupyter demos](http://nbviewer.ipython.org/gist/ohasselblad/b2475c95a23c5e070264).
+Use the [Carto Python module](https://github.com/Vizzuality/cartodb-python) to create and update tables; check out [Andy's Jupyter demos](http://nbviewer.ipython.org/gist/ohasselblad/b2475c95a23c5e070264).
 
 **R**
 
@@ -727,44 +726,17 @@ And apply the following CartoCSS to show intensity when lines cross:
 ```
 ![elephant map](https://raw.githubusercontent.com/auremoser/ipam-16/master/img/ele-sql.png)
 
-#### Sharing Your Map
+### RESOURCES
 
-You can publish your map as is via the "Share" button in the interface, but if you would like to build a more custom version you can use the JS libraries and APIs mentioned above, and use CartoDB as your Data Store.
+#### Mapping + Carto
 
-![share](https://raw.githubusercontent.com/auremoser/ipam-16/master/img/cali-share.png)
-
-In the [workshop repo](https://github.com/auremoser/ipam-16), you'll find a template for making your map as a site online:
-
-* [index.html](https://github.com/auremoser/ipam-16/blob/master/index.html): setting up your map div and canvas
-* [main.js](https://github.com/auremoser/ipam-16/blob/master/main.js): pulling in your basemap, cartodb feature layers and other details
-
-If you run this locally, you'll get a map that looks like this:
-
-![LA MAP](https://raw.githubusercontent.com/auremoser/extract-15/master/img/cali-local.png)
-
-
-#### Seeking Inspiration
-
-We worked on a little tool to study your dataset in CartoDB and suggest "interesting maps" to you in the GUI. It'll be a little modal in the lower left corner and will produce demo maps with pre-fab SQL and CSS like this:
-
-![Pecan](https://raw.githubusercontent.com/auremoser/ipam-16/master/img/cali-pecan.png)
-
-###RESOURCES
-
-#### Mapping + CartoDB
-
-1. [Map Academy](http://academy.cartodb.com)
-    + [CartoDB.js](http://academy.cartodb.com/courses/03-cartodbjs-ground-up/lesson-3.html) -- build a web app to visualize your data, allowing for user interaction
-	+ [SQL and PostGIS](http://academy.cartodb.com/courses/04-sql-postgis.html)
-2. [CartoDB Tutorials](http://docs.cartodb.com/tutorials.html)
-3. [CartoDB Trainings](http://cartodb.github.io/training/)
-3. [CartoDB Editor Documentation](http://docs.cartodb.com/cartodb-editor.html)
-4. [CartoDB APIs](http://docs.cartodb.com/cartodb-platform.html)
-5. [Community help on StackExchange](http://gis.stackexchange.com/questions/tagged/cartodb)
-6. [CartoDB Map Gallery](http://cartodb.com/gallery/)
-7. [CartoDB Bootstrap Template by Chris Wong](https://github.com/chriswhong/cartodb-github-template)
-8. [Friendly Geo Intro by Joey Lee](https://github.com/joeyklee/hellowebmaps)
-9. [Lyzi Diamond tutorial on Leaflet](http://lyzidiamond.com/posts/osgeo-august-meeting)
+1. [CartoCamp Workshops](https://github.com/cartocamp/workshops)
+2. [Carto Guides/Trainings](https://carto.com/learn/guides)
+3. [Community help on StackExchange](http://gis.stackexchange.com/questions/tagged/carto)
+4. [Carto Map Gallery](http://carto.com/gallery/)
+5. [Carto Bootstrap Template by Chris Wong](https://github.com/chriswhong/cartodb-github-template)
+6. [Friendly Geo Intro by Joey Lee](https://github.com/joeyklee/hellowebmaps)
+7. [Lyzi Diamond tutorial on Leaflet](http://lyzidiamond.com/posts/osgeo-august-meeting)
 
 #### Data
 1. [World GeoSpatial Datasets](https://github.com/planetopendata/awesome-world): countries, cities, codes, flags, languages, latitude/longitude, etc.
@@ -779,5 +751,6 @@ We worked on a little tool to study your dataset in CartoDB and suggest "interes
 4. [Perception Concerns](https://github.com/tmcw/perception)
 5. [Gestalt Theory](http://emeeks.github.io/gestaltdataviz/section1.html)
 6. [Color Brewer](http://colorbrewer2.org/) or [Geocolor](http://geocolor.io/)
+7. [Carto Colors for Meaningful Visualizations](https://carto.com/carto-colors)
 
 If you want to chat with me, or send me some cool maps you've made, just email [aurelia@mozillafoundation.org](mailto:aurelia@mozillafoundation.org).
