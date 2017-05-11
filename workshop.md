@@ -371,9 +371,9 @@ Type | Title | Link/Demo | BlogPost
 [Plot.ly](https://plot.ly/) | Earthquake Data  | [Plotly Tutorial](https://plot.ly/ipython-notebooks/cartodb/) | [CartoDB Blog](http://blog.cartodb.com/plotly/)
 
 
-### Building a Narrative
+## Building a Narrative
 
-#### Part 1: [Earthquake Mapping Data](https://auremoser.carto.com/builder/f401fa80-2699-11e6-a0ea-0e3ff518bd15/embed)
+### Part 1: [Earthquake Mapping Data](https://auremoser.carto.com/builder/f401fa80-2699-11e6-a0ea-0e3ff518bd15/embed)
 
 We're going to visualize earthquake data to explore some of the mapping options available to us with a variety of data types.
 
@@ -403,7 +403,7 @@ http://earthquake.usgs.gov/hazards/qfaults/qfaults.zip
 
 Looking at the metadata, we could visualize the layers using the slip code attribute that shows the age of the faults, like they do in the [map above](http://earthquake.usgs.gov/hazards/qfaults/map/).
 
-![Multilayer](https://raw.githubusercontent.com/auremoser/extract-15/master/img/q-fault.jpg)
+![Multilayer](https://raw.githubusercontent.com/auremoser/ams-maps-17/master/img/quake-faults.png)
 
 **SPATIAL PROCESSING + SQL**
 
@@ -411,7 +411,7 @@ CartoDB is a tool for geospatial data manipulation and visualization.
 
 SQL is a language for data manipulation. PostGIS is an extension to SQL that has the power to manipulate geospatial data.
 
-##### Basic Syntax
+#### Basic Syntax
 
 The most basic statement is:
 
@@ -460,9 +460,9 @@ LIMIT
   20
 ```
 
-![Sql](https://raw.githubusercontent.com/auremoser/extract-15/master/img/q-sql.jpg)
+![Sql](https://raw.githubusercontent.com/auremoser/ams-maps-17/master/img/quakes.png)
 
-##### the_geom, the_geom_webmercator, and cartodb_id
+#### the_geom, the_geom_webmercator, and cartodb_id
 
 There are two special columns in CartoDB:
 
@@ -507,7 +507,7 @@ GROUP BY
   net
 ```
 
-#### Part 2: [Special Styling](https://auremoser.carto.com/builder/3547901b-c69d-4375-b868-afbd86e651b3/embed)
+### Part 2: [Special Styling](https://auremoser.carto.com/builder/3547901b-c69d-4375-b868-afbd86e651b3/embed)
 
 Sometimes you want to provide extra styling flair to maps, and you can do that in CartoCSS and SQL.
 
