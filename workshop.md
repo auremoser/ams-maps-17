@@ -604,12 +604,13 @@ In order to highlight African countries add the following snippet at the end of 
 
 ### Ocean Styles
 
-+ In order to style *Ocean* layer:
-  1. Go back to *LAYERS* pane
-  2. Click on *Ocean* layer
-  3. Go to *STYLE* tab
-  4. Open CartoCSS view by clicking the slider button
-  5. Apply this code:
+In order to style *Ocean* layer:
+
+* Go back to *LAYERS* pane
+* Click on *Ocean* layer
+* Go to *STYLE* tab
+* Open CartoCSS view by clicking the slider button
+* Apply this code:
 
 ```css
 #layer{
@@ -638,9 +639,9 @@ Finally, go back to *LAYERS* pane to style the basemap:
   3. Click on *PUBLISH* (below)
   3. Copy the link and paste it in a new browser tab: [https://auremoser.carto.com/builder/3547901b-c69d-4375-b868-afbd86e651b3/embed](https://auremoser.carto.com/builder/3547901b-c69d-4375-b868-afbd86e651b3/embed)
 
-<br>
+
 ![africa final map](https://raw.githubusercontent.com/auremoser/ams-maps-17/master/img/africa-final.png)
-<br>
+
 
 
 ### RESOURCES
