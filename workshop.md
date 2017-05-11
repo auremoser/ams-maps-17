@@ -178,68 +178,13 @@ benelux topojson: https://github.com/deldersveld/topojson/blob/master/countries/
 
 We'll be collecting data from multiple sources. Most of which are available in [the repository](https://github.com/auremoser/ams-17/) where our data will be stored.
 
-**OUTCROPS IN OSM**
-
-[Outcrops](http://wiki.openstreetmap.org/wiki/Tag:geological%3Doutcrop) are places where the bedrock or superficial deposits have become locally exposed and are directly accessible to analysis in OSM; let's map them!
-
-![OSM Geo](https://raw.githubusercontent.com/auremoser/ipam-16/master/img/osmgeo.jpg)
-
-* OSM: Open StreetMap + [Overpass Turbo](http://overpass-turbo.eu/)
-
-![Overpass](https://raw.githubusercontent.com/auremoser/ipam-16/master/img/turbo.jpg)
-
-You can read more about Overpass on the [Open Street Map Wiki](http://wiki.openstreetmap.org/wiki/Overpass_turbo).
-
-Steps:
-* Pan manually to an area in OverPass Turbo
-* Go to the "Wizard"
-* Look up the appropriate OSM tag in the OSM wiki
-* Search for "geological=outcrop" or whatever
-* Export your data as GeoJson or KML
-* Upload into Carto or another interface
-
-![outcrop search](https://raw.githubusercontent.com/auremoser/ipam-16/master/img/outcrop.jpg)
-
-Notes:
-* Only nodes, only ways, only relations can save you processing time/power (-> limit to only map what you want)
-* Searching for a large OSM dataset can freeze Overpass Turbo (-> define your bounding box)
-
-![Turbo Output Interface](https://raw.githubusercontent.com/auremoser/ipam-16/master/img/output.jpg)
-
-There are lots of geospatial data formats that may or may not be easy to parse. Here's [a short list](https://docs.cartodb.com/cartodb-editor/datasets/#supported-geospatial-data-formats) of ones that are commonly imported into CartoDB so you can get familiar with a few you might encounter.
-
-#### Part 0: Outcrops
-
-![Outcrop Data](https://raw.githubusercontent.com/auremoser/ipam-16/master/img/outcrop-data.jpg)
-
-So let's take a look at this outcrop data. You want to lead people to all of the outcrop stations globally. You can use the kml file [here in the data folder](https://github.com/auremoser/ipam-16/blob/master/data/outcrop.kml).
-
-You can get the libraries from OSM or NYC Open Data but let's go with the KML from OSM that we extracted with OverPass.
-
-`.kml` which is a notation for XML that first made popular by Google Earth before becoming standardized. Google Mapping Products happily use kml files. Check to see how the locations are described:
-
-``` xml
-<?xml version="1.0" encoding="UTF-8"?><kml xmlns="http://www.opengis.net/kml/2.2"><Document><name>overpass-turbo.eu export</name><description>Filtered OSM data converted to KML by overpass turbo.
-Copyright: The data included in this document is from www.openstreetmap.org. The data is made available under ODbL.
-Timestamp: 2015-09-14T14:05:02Z</description><Placemark><name>Sonnberg</name><Point><coordinates>9.43865,50.6228007</coordinates></Point><ExtendedData><Data name="@id"><value>node/428215780</value></Data><Data name="geological"><value>outcrop</value></Data><Data name="name"><value>Sonnberg</value></Data><Data name="note"><value>Rocky promontory, subject to erosion. Middle Triassic shallow marine limestone, Jena Formation (U.-Muschelkalk, Wellenkalk). Small outcrop within E-W trending graben structure. Contact to MIttlerer Buntsandstein exposed in river bed southwest of crag.</value></Data></ExtendedData></Placemark><Placemark><name>Monkey rock</name><Point><coordinates>177.127952,-17.7323069</coordinates></Point>
-...
-```
-
-Notice that the point coordinates are in the format `<coordinates>`longitude, latitude`</coordinates>`. Some geoformats are lat, long and others are long, lat. This makes everyone sad.
-
-When coordinates cannot easily be parsed they go to "[null island](https://raw.githubusercontent.com/auremoser/gdi-webmap/master/img/null_island.jpg)," a fictional place at coordinates (0,0).
-
-In a bit, we'll show how you can convert, process and use a file like this to plot data on your map.
-
-#### Storing
-
 CartoDB is a Postgres database in the cloud, which means it handles a lot of your backend data needs and allows you to query for data and pull those data and basemap tiles into your front-end code, we'll be using this for part of the workshop to manage hosting easily. It's appropriate to deal with databases when you have multiple datasets you'd like to layer on your map. For single or simple datasets, you can load a file with JQuery/Leaflet. We'll demo both.
 
 ![architecture](https://raw.githubusercontent.com/auremoser/ipam-16/master/img/architecture.png)
 
 You can also store your data in Github, or in another service that makes it web accessible. Read more about [that here](https://github.com/blog/1541-geojson-rendering-improvements) and [here](https://github.com/blog/1528-there-s-a-map-for-that).
 
-![github](https://raw.githubusercontent.com/auremoser/ipam-16/master/img/github.png)
+![github](https://raw.githubusercontent.com/auremoser/ams-maps-17/master/img/benelux-git.png)
 
 ### Mapping Tools
 ![Logos](https://raw.githubusercontent.com/auremoser/ipam-16/master/img/logos.png)
