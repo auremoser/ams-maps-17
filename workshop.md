@@ -332,12 +332,6 @@ Use Kyle Walker's [R2CartoDB](https://rpubs.com/walkerke/r2cartodb) project to c
 
 **MAPS THAT TELL TIME** - **[Torque](http://docs.cartodb.com/tutorials/introduction_torque.html)**
 
-![Realtime Traffic Map](https://raw.githubusercontent.com/auremoser/140realtime/master/img/muni-animated.gif)
-
-Source: [Traffic Change Data for SF](https://publicdata-transit.firebaseio.com/sf-muni)
-Demo: [Municipal Traffic in SF App](http://track-sf-muni.cartodb.io/)
-Blog: [CartoDB + Firebase](https://www.firebase.com/blog/2015-04-10-realtime-maps-cartodb-firebase.html)
-
 1. [Demonstrations in Brazil](http://blog.cartodb.com/mapping-the-world-ongoing-demonstrations-in-brazil/)
 2. [Animal migration patterns](http://robbykraft.github.io/AnimalTrack/)
 3. [Diwali Celebrated](http://bl.ocks.org/anonymous/raw/b9b7c7d6de1c6398e435/)
@@ -377,9 +371,9 @@ Type | Title | Link/Demo | BlogPost
 [Plot.ly](https://plot.ly/) | Earthquake Data  | [Plotly Tutorial](https://plot.ly/ipython-notebooks/cartodb/) | [CartoDB Blog](http://blog.cartodb.com/plotly/)
 
 
-#### Building a Narrative
+### Building a Narrative
 
-#### Part 1: [Earthquake Mapping Data](https://team.cartodb.com/u/aureliamoser/viz/f5e77aac-7edb-11e5-b68c-0ecfd53eb7d3/public_map)
+#### Part 1: [Earthquake Mapping Data](https://auremoser.carto.com/builder/f401fa80-2699-11e6-a0ea-0e3ff518bd15/embed)
 
 We're going to visualize earthquake data to explore some of the mapping options available to us with a variety of data types.
 
@@ -394,12 +388,6 @@ http://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_month.csv
 Import it into your account like this:
 
 ![add layer](https://raw.githubusercontent.com/auremoser/extract-15/master/img/dataimport.gif)
-
-**EXPLORE**
-
-![analyzing data](https://raw.githubusercontent.com/auremoser/ipam-16/master/img/pecan-2.png)
-
-We wrote some algorithms to analyze the data you import to suggest maps to make. When you choose one of these, it updates the wizard with all of the styling information.
 
 **MAKE A MULTILAYER MAP**
 
@@ -441,7 +429,7 @@ SELECT
 FROM
   class_list
 WHERE
-  name IN ('Aurelia', 'Jorgito')
+  name IN ('Aurelia', 'Andy')
   OR (
     height < 1.8
    AND
@@ -518,6 +506,171 @@ FROM
 GROUP BY
   net
 ```
+
+#### Part 2: [Special Styling](https://auremoser.carto.com/builder/3547901b-c69d-4375-b868-afbd86e651b3/embed)
+
+Sometimes you want to provide extra styling flair to maps, and you can do that in CartoCSS and SQL.
+
+We'll do something not unlike this inspiration print map:
+
+![submarine cable map](https://raw.githubusercontent.com/auremoser/ams-maps-16/master/img/submarinecablemap.png)
+
+
+## Data + Tiles
+
++ [.carto file](https://drive.google.com/file/d/0B9k_lcYQZACgY1k2RHV3MGx3MTg/view?usp=sharing)
++ tile image url: `https://raw.githubusercontent.com/auremoser/ams-maps-16/master/img/land_paper.png`
+
+## Data Import
+
++ Import `.carto` file into your account - it's a zip package with a couple of layers
++ Open the map
++ Rename your map as *Vintage Africa Map*.
++ Order and rename your layers as follows:
+  1. *ne_50m_admin_0_countries* > *Countries*
+  2. *continent* > *Continent*
+  3. *ne_50m_ocean* > *Ocean*
++ Select Africa:
+  1. Click on *ADD ANALYSIS* just below *Continent* layer name
+  2. Select *Filter by column value*
+  3. Click on *ADD ANALYSIS*
+  4. Set parameters as folows:
+    * *COLUMN*: `continent`
+    * *INPUT*: `Africa`
+    * *RESULT*: *Show*
+  5. Click on *APPLY*
+
+## CSS Effects
+
++ Create coastal ripple effect:
+  1. Click on *+* symbol button to add a new analysis 
+  2. Select *Create  Areas of influence*
+  3. Click on *ADD ANALYSIS*
+  4. Set parameters as folows:
+    * *TYPE*: *Distance*
+    * *UNITS*: *miles*
+    * *RADIUS*: `100`
+    * *TRACTS*: `6`
+    * *BOUNDARIES*: *Intact*
+  5. Hit *APPLY*
+
+<br>
+![ripples](https://github.com/CartoDB/cdmx-training/blob/master/03-cartography/exercises/img/ripples.png)
+<br>
+
+* Style:
+  1. Go to *STYLE* tab
+  2. Use the slider button to open CartoCSS view
+  3. Apply this code:
+
+  ```css
+  #layer{
+    line-width: ramp([data_range],0.4,1,equal);
+    line-color: teal;
+    line-opacity: 0.5;
+  }
+  ```
+
+### Global styles
+
++ In order to style all countries by categories and using a pattern file follow these instructions:
+  1. Go back to *LAYERS* pane
+  2. Click on *Countries* layer
+  3. Go to *STYLE* tab
+  4. Open CartoCSS view by clickin the slider button
+  5. Apply this code:
+
+  ```css
+  #layer{
+    polygon-pattern-file: url(https://s3.amazonaws.com/com.cartodb.users-assets.production/production/mamatablog/assets/20151025140245land_paper.png);
+    polygon-pattern-opacity: 0.3;
+    polygon-fill: ramp([mapcolor7], cartocolor(Bold), category(7));
+    polygon-opacity: 0.2;
+  }
+  ```
+
+<br>
+![africa countries](https://raw.githubusercontent.com/auremoser/ams-maps-16/master/img/africa-countries.png)
+<br>
+
+### Africa Styles
+
++ In order to highlight African countries add the following snippet at the end of the CartoCSS code. It will improve some cartographic-related issues, as line's color and offset, as well as labels.
+
+```css
+  [continent='Africa']{ 
+    polygon-opacity: 0.3;
+    line-width: 2;
+    line-color: ramp([mapcolor7], cartocolor(Bold), category(7));
+    line-opacity: 0.4;
+    line-offset: -1;
+
+    ::labels  {
+    text-name: [abbrev];
+    text-face-name: 'Gravitas One Regular';
+    text-size: 10;
+    text-fill: #000;
+    text-label-position-tolerance: 0;
+    text-halo-radius: 0;
+    text-halo-fill: #6F808D;
+    text-dy: 0;
+    text-allow-overlap: true;
+    text-placement: point;
+    text-placement-type: dummy;
+    text-transform: uppercase;
+    text-character-spacing: 0.5;
+    text-wrap-width: 25;
+    }
+  }
+```
+
+<br>
+![africa](https://github.com/CartoDB/cdmx-training/blob/master/03-cartography/exercises/img/africa.png)
+<br>
+
+#### Ocean Styles
+
++ In order to style *Ocean* layer:
+  1. Go back to *LAYERS* pane
+  2. Click on *Ocean* layer
+  3. Go to *STYLE* tab
+  4. Open CartoCSS view by clicking the slider button
+  5. Apply this code:
+
+```css
+#layer{
+  polygon-fill: lighten(#b3d1cf,0);
+  polygon-pattern-file: url(https://s3.amazonaws.com/com.cartodb.users-assets.production/production/mamatablog/assets/20151025140245land_paper.png);
+  polygon-pattern-opacity: 0.4;
+}
+```
+
+<br>
+![ocean](https://github.com/CartoDB/cdmx-training/blob/master/03-cartography/exercises/img/ocean.png)
+<br>
+
+#### Basemap
+
++ Finally, go back to *LAYERS* pane to style the basemap:
+  1. Click on *Positron*.
+  2. Set *COLOR* as *Source*
+  3. Set `#c3d1c7` as *HEX* value.
+
+![africa basemap](https://raw.githubusercontent.com/auremoser/ams-maps-16/master/img/africa-basemap.png)
+
+## Publish
+
++ Go back to *LAYERS* pane in order to share your map:
+  1. Click on *SHARE`
+  2. Click on *PUBLISH* blue button
+  3. Click on *PUBLISH* (below)
+  3. Copy the link and paste it in a new browser tab: [https://auremoser.carto.com/builder/3547901b-c69d-4375-b868-afbd86e651b3/embed](https://auremoser.carto.com/builder/3547901b-c69d-4375-b868-afbd86e651b3/embed)
+
+<br>
+![map](https://github.com/CartoDB/cdmx-training/blob/master/03-cartography/exercises/img/map.png)
+<br>
+
+
 
 ### RESOURCES
 
