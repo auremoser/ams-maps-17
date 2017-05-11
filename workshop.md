@@ -22,7 +22,7 @@ This workshop will be a light introduction to mapping with open source tools, fe
 	+ Anatomy of a Webmap
 2. **Mapping Data**
 	+ Formats + Free Sources
-	+ Collecting, Sync, Storage
+	+ Data Collecting, Sync, Storage
 3. **Mapping Tools**
 	+ Toolbox: Google, Mapbox, Carto, Leaflet
 	+ Mapping in a GUI
@@ -37,14 +37,12 @@ This workshop will be a light introduction to mapping with open source tools, fe
 	+ Mapping Movement
 		+ Tell Time/Stories: Odyssey + Torque
 		+ Partner Graphics: Graphs + Charts
-4. **Building a Narrative**
+4. **Building a Visual Narrative**
 	+ Part 0: [Geology Data: OSM](http://cdb.io/1UPs2Nw)
 	+ Part 1: [Earthquake Data](https://auremoser.cartodb.com/viz/f401fa80-2699-11e6-a0ea-0e3ff518bd15/public_map)
 		+ [Earthquake Selector Block](http://bl.ocks.org/ohasselblad/b1a6290d109391e75880)
 	+ Part 2: [Elephant Migration Data](https://auremoser.cartodb.com/viz/95ea6526-2695-11e6-a16c-0ecfd53eb7d3/public_map)
-	+ Sharing your Map
-	+ Seeking inspiration
-6. **Resources**
+5. **Resources**
 
 ### Mapping Basics
 
@@ -161,20 +159,19 @@ We'll be working with an assortment of vector point/line/polygon data:
 * **POINTS**: [Earthquake Centroids](http://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_month.csv)
 * **LINES**: [Elephant Migration Patterns](http://auremoser.cartodb.com/api/v2/sql?q=SELECT%20*%20FROM%20elephant_movements&format=geojson&filename=elephant_movements)
 
-![cali-data](https://raw.githubusercontent.com/auremoser/ipam-16/master/img/cali-data.png)
-
 Here are additional geo-spatial datasets you might want to play with:
 
-topojson converter: http://jeffpaine.github.io/geojson-topojson/
-benelux topojson: https://github.com/deldersveld/topojson/blob/master/countries/belgium/benelux-countries.json
-* [Columbia University GeoSpatial Datasets](http://library.columbia.edu/locations/dssc/data/nyc.html)
+* [Global Administrative Areas Datasets](http://www.gadm.org/download)
+* [National Geo-register - Netherlands](http://www.nationaalgeoregister.nl/geonetwork/srv/dut/catalog.search#/home)
 * [World GeoSpatial Datasets](https://github.com/planetopendata/awesome-world): countries, cities, codes, flags, languages, latitude/longitude, etc.
 * [Center for National Geographic Information](http://centrodedescargas.cnig.es/CentroDescargas/index.jsp)
 * [IDEE Metadata Catalog](http://www.idee.es/csw-inspire-idee/srv/eng/main.home): spatial data from multiple agencies
 * [Geogig](http://geogig.org/): distributed geospatial data
 * [International GIS Data - Penn State](http://guides.library.upenn.edu/content.php?pid=324392&sid=2655132)
+* [Benelux Countries JSON](https://github.com/deldersveld/topojson/blob/master/countries/belgium/benelux-countries.json)
+	* [Topojson converter](http://jeffpaine.github.io/geojson-topojson/)
 
-#### Collecting + Sync Tables
+#### Data Collection & Syncing
 
 We'll be collecting data from multiple sources. Most of which are available in [the repository](https://github.com/auremoser/ams-17/) where our data will be stored.
 
@@ -193,14 +190,14 @@ There are loads of ways to approach a map here are a few approaches to mapping t
 
 #### Map Making Exercise
 
-We can make a map with the outcrop data, or other data in the [data folder](https://github.com/auremoser/foss4g-cdb/blob/master/outcrop.kml) for this workshop.
+We can make a map with the province polygon data, or other data in the [data folder](https://github.com/auremoser/ams-maps-17/blob/master/data/nl_adm1.kmz) for this workshop.
 
 **Using Google Maps**
 
 * <https://www.google.com/maps/d/>
 * create account if you don't already have a Gmail account
 * click on Import Map in top left hand menu (or My Maps -> Create map in some Google Maps UIs)
-* upload `outcrop.kml`
+* upload `nl_adm1.kmz`
 * explore changing the map features if you would like
 
 **Using Mapbox**
@@ -209,7 +206,7 @@ We can make a map with the outcrop data, or other data in the [data folder](http
 * create account if you don't already have a Mapbox account
 * click on the Data tab at the top right hand corner of the screen
 * click on import
-* upload `outcrop.kml`
+* upload `nl_adm1.kmz`
 * select map features if you would like then click on Import Features
 * explore changing the map features if you would like
 
@@ -217,76 +214,22 @@ We can make a map with the outcrop data, or other data in the [data folder](http
 
 * <https://carto.com/>
 * create account if you don't already have a CartoDB account, [use this URL](https://carto.com/signup?plan=academy) to get boosted features
-* click on Create Map; select Map View at the top of the screen
-* click on the '+' or Add Layer option at the top of the right side menu
-* upload `outcrop.kml`
+* click on Create Map; select 'Connect Dataset'
+* upload `nl_adm1.kmz`
 * explore changing the map features, if you like
 
 **Using Leaflet**
 
 You can also make a map from scratch using [Leaflet.js](http://leafletjs.com/) to attach a set of points to a map made of tiles provided by OpenStreetMap.
 
-You will first need to convert your kml file into GeoJSON (although I have both in the [data folder](https://github.com/copystar/ipam-16/blob/master/data/outcrop.kml)) for this workshop.
+You will first need to convert your kmz file into GeoJSON (although I have both in the [data folder](https://github.com/auremoser/ams-maps17/blob/master/data/nl_adm1.kmz)) for this workshop.
 
-GeoJSON is a file format that is easily digestable by JavaScript. If you have a data format (shp, kml) that is not geojson you can convert it to the right format for your code with [GeoJSON.io](http://geojson.io/)/
+GeoJSON is a file format that is easily digestable by JavaScript. If you have a data format (shp, kml, kmz) that is not geojson you can convert it to the right format for your code with [GeoJSON.io](http://geojson.io/)/
 
-* go to http://geojson.io/
-* from the menu *Open* select *File* and upload our kml file: <https://github.com/copystar/foss4g-cdb/blob/master/outcrop.kml>
-* notice how GeoJSON looks like in the side-menu
-
-``` json
-
-	{
-	  "type": "FeatureCollection",
-	  "generator": "overpass-turbo",
-	  "copyright": "The data included in this document is from www.	openstreetmap.org. The data is made available under ODbL.",
-	  "timestamp": "2015-09-14T14:05:02Z",
-	  "features": [
-	    {
-	      "type": "Feature",
-	      "id": "node/428215780",
-	      "properties": {
-	        "@id": "node/428215780",
-	        "geological": "outcrop",
-	        "name": "Sonnberg",
-	        "note": "Rocky promontory, subject to erosion. Middle 	Triassic shallow marine limestone, Jena Formation (U.-	Muschelkalk, Wellenkalk). Small outcrop within E-W 	trending graben structure. Contact to MIttlerer 	Buntsandstein exposed in river bed southwest of crag."
-	      },
-	      "geometry": {
-	        "type": "Point",
-	        "coordinates": [
-	          9.43865,
-	          50.6228007
-	        ]
-	      }
-	    },
-	    {
-	      "type": "Feature",
-	      "id": "node/568331113",
-	      "properties": {
-	        "@id": "node/568331113",
-	        "geological": "outcrop",
-	        "name": "Monkey rock"
-	      },
-	      "geometry": {
-	        "type": "Point",
-	        "coordinates": [
-	          177.127952,
-	          -17.7323069
-	        ]
-	      }
-	    },
-
-```
-
-* after the map is drawn, from the menu *Save*, select *GeoJSON*"
-* refer to "Adding GeoJSON to Leaflet with Link Relations" : http://lyzidiamond.com/posts/osgeo-august-meeting to find the HTML that use can use as a template that will import GeoJSON into a map created by Leaflet.js
+* refer to "Adding GeoJSON to Leaflet with Link Relations" : <http://lyzidiamond.com/posts/osgeo-august-meeting> to find the HTML that use can use as a template that will import GeoJSON into a map created by Leaflet.js
 * use *http://{s}.tile.osm.org/{z}/{x}/{y}.png* for your map tiles
-* use `outcrop.geojson` for your geojson layer: https://github.com/auremoser/ipam-16/blob/master/data/outcrop.geojson
-* explore changing the map features if you would like using Leaflet.js: http://leafletjs.com/
-
-![outcrop](https://raw.githubusercontent.com/auremoser/ipam-16/master/img/outcrop-pt.jpg)
-
-Quick [outcrop map by type](http://cdb.io/1UPs2Nw).
+* use `nl-provinces.geojson` for your geojson layer: <https://github.com/auremoser/ams-maps17/blob/master/data/nl-provinces.geojson>
+* explore changing the map features if you would like using Leaflet.js: <http://leafletjs.com/>
 
 ### Map Examples in CartoDB
 + [EuroBird Portal](http://www.eurobirdportal.org/ebp/en/#home/TRIGLA/r2013/tm/t2013/)
@@ -312,12 +255,8 @@ Quick [outcrop map by type](http://cdb.io/1UPs2Nw).
 ##### You can sign-up for a [Carto Academy Account via this URL](https://carto.com/signup?plan=academy).
 
 The GUI interface for Carto looks as follows:
-![dashboard](https://raw.githubusercontent.com/auremoser/extract-15/master/img/dash.jpg)
-![data view](https://raw.githubusercontent.com/auremoser/ipam-16/master/img/cali-data.png)
-![query view](https://raw.githubusercontent.com/auremoser/ipam-16/master/img/cali-query.png)
-![map view](https://raw.githubusercontent.com/auremoser/ipam-16/master/img/cali-choro.png)
-![css view](https://raw.githubusercontent.com/auremoser/ipam-16/master/img/cali-cartocss.png)
-![share](https://raw.githubusercontent.com/auremoser/ipam-16/master/img/cali-share.png)
+![maps view](https://raw.githubusercontent.com/auremoser/ams-maps-17/master/img/dash-view.png)
+
 
 You have myriad customization options in the in-browser editor:
 
