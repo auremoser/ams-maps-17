@@ -285,8 +285,6 @@ There are also a series of presets in the Wizard that write your css for you:
 * **Composite Operations:** change the color of markers when they overlap
 * **Label Text:** Text appearing by a marker (can be from columns)
 
-![css](https://raw.githubusercontent.com/auremoser/ipam-16/master/img/st-css.png).
-
 I've loaded some example css in the `css/` folder of this workshop repo, that you can copy into the CSS GUI in carto if you upload the provinces dataset: `css/provinces.css`.
 
 ![css](https://raw.githubusercontent.com/auremoser/ams-maps-17/master/img/ams-regions-css.png)
