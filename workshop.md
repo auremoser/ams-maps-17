@@ -249,18 +249,17 @@ GeoJSON is a file format that is easily digestable by JavaScript. If you have a 
 
 ![Basemaps](https://raw.githubusercontent.com/auremoser/140realtime/master/img/basemaps.jpg)
 
-#### Mapping in a GUI
+### Mapping in a GUI
 
-##### You can sign-up for a [Carto Academy Account via this URL](https://carto.com/signup?plan=academy).
+You can sign-up for a [Carto Academy Account via this URL](https://carto.com/signup?plan=academy).
 
 The GUI interface for Carto looks as follows:
 ![maps view](https://raw.githubusercontent.com/auremoser/ams-maps-17/master/img/dash-view.png)
 
-
 You have myriad customization options in the in-browser editor:
 
 * `data` - run sql and postgis functions across your data
-* `analysis` - adjust the type, colors and fills in your map
+* `analysis` - adjust the type of aggregate/auto-analysis you apply
 * `style` - customize the css or style of your map with dropdowns/buttons
 * `popup` - create hovers, tooltips with information from your datatables
 * `legend` - create keys for your map
@@ -304,7 +303,7 @@ You can then change the basemap to a color (`#000000`) so that the projection do
 
 Carto's `Positron` and `Dark Matter` basemaps are available for free in Leaflet and OpenLayers maps, as well as core Carto maps. Read more about that [here](https://carto.com/basemaps/), and check out documentation on the available Carto Basemaps can be found [here](https://github.com/CartoDB/cartodb/wiki/BaseMaps-available).
 
-#### Mapping in Code
+### Mapping in Code
 
 ![Plotly](https://raw.githubusercontent.com/auremoser/foss4g-cdb/master/img/plotly.gif)
 
@@ -327,7 +326,7 @@ Use the [Carto Python module](https://github.com/Vizzuality/cartodb-python) to c
 
 Use Kyle Walker's [R2CartoDB](https://rpubs.com/walkerke/r2cartodb) project to create and update tables in R.
 
-#### Mapping Movement
+### Mapping Movement
 
 **MAPS THAT TELL TIME** - **[Torque](http://docs.cartodb.com/tutorials/introduction_torque.html)**
 
@@ -369,8 +368,7 @@ Type | Title | Link/Demo | BlogPost
 [Chart.js](http://www.chartjs.org/) Line Graph | Tornado Data  | [Andrew's Block](http://bl.ocks.org/andrewxhill/9134155)
 [Plot.ly](https://plot.ly/) | Earthquake Data  | [Plotly Tutorial](https://plot.ly/ipython-notebooks/cartodb/) | [CartoDB Blog](http://blog.cartodb.com/plotly/)
 
-
-## Building a Narrative
+## Building a Visual Narrative
 
 ### Part 1: [Spatial Analysis](https://auremoser.carto.com/builder/f401fa80-2699-11e6-a0ea-0e3ff518bd15/embed)
 
