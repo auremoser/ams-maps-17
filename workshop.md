@@ -268,11 +268,11 @@ You have myriad customization options in the in-browser editor:
 
 **DATA IMPORT**
 
-Let's say I import the 50 state polygons from the CartoDB Data Library. I navigate to Datasets > Data Library and search for states:
+Let's say I import the Netherlandish provinces polygons, those are available in the `data/` folder of with workshop repo: `n-provinces.geojson`. 
+
+You can also navigate to the Data Library in Carto and find some prefab datasets that you can fork into your account: Datasets > Data Library.
 
 ![Data Library](https://raw.githubusercontent.com/auremoser/ipam-16/master/img/library.png)
-
-It gives me a table I can fork called `ne_50m_admin_1_states`.
 
 **CUSTOMIZING UI + CARTOCSS**
 
@@ -282,26 +282,30 @@ There are also a series of presets in the Wizard that write your css for you:
 
 * **Marker Fill:** change the size, color, and opacity of all markers
 * **Marker Stroke:** change the width, color, and opacity of every marker's border
-* **Composite Operation:** change the color of markers when they overlap
+* **Composite Operations:** change the color of markers when they overlap
 * **Label Text:** Text appearing by a marker (can be from columns)
 
-![css](https://raw.githubusercontent.com/auremoser/ipam-16/master/img/st-css.png)
+![css](https://raw.githubusercontent.com/auremoser/ipam-16/master/img/st-css.png).
+
+I've loaded some example css in the `css/` folder of this workshop repo, that you can copy into the CSS GUI in carto if you upload the provinces dataset: `css/provinces.css`.
+
+![css](https://raw.githubusercontent.com/auremoser/ams-maps-17/master/img/ams-regions-css.png)
 
 **QUERYING IN SQL**
 
-Say you want to move Alaska and Hawaii into view because the typical Mercator Projection just isn't cutting it. 
+Say you want to reproject the Netherlands in the appropriate ESPG code because the typical Mercator Projection isn't satisfying. 
 
 Carto supports PostGIS and SQL functional manipulation of your data in the cloud.
 
-![sql](https://raw.githubusercontent.com/auremoser/ipam-16/master/img/st-sql.png)
+![sql](https://raw.githubusercontent.com/auremoser/ams-maps-17/master/img/ams-reproj2.png)
 
 **CUSTOMIZING BASEMAPS**
 
-For the above, I made my basemap background one color (`#90cccb`), and added country polygons from the dataset in our common Data Library.
+You can then change the basemap to a color (`#000000`) so that the projection doesn't look terrible with the underlying mercator country outlines.
 
-![base](https://raw.githubusercontent.com/auremoser/ipam-16/master/img/st-base.png)
+![base](https://raw.githubusercontent.com/auremoser/ams-maps-17/master/img/ams-blk-basemap.png)
 
-Our `Positron` and `Dark Matter` basemaps are available for free in Leaflet and OpenLayers maps, as well as core Carto maps. Read more about that [here](https://carto.com/basemaps/), and check out documentation on the available Carto Basemaps can be found [here](https://github.com/CartoDB/cartodb/wiki/BaseMaps-available).
+Carto's `Positron` and `Dark Matter` basemaps are available for free in Leaflet and OpenLayers maps, as well as core Carto maps. Read more about that [here](https://carto.com/basemaps/), and check out documentation on the available Carto Basemaps can be found [here](https://github.com/CartoDB/cartodb/wiki/BaseMaps-available).
 
 #### Mapping in Code
 
@@ -516,99 +520,6 @@ FROM
 GROUP BY
   net
 ```
-
-##### Go Further
-
-Build a tool to execute SQL and CSS instructions on button click, like [this one for earthquake data](http://bl.ocks.org/ohasselblad/b1a6290d109391e75880).
-
-Check out the [Map Academy: Lesson 3](http://academy.cartodb.com/courses/03-cartodbjs-ground-up/lesson-3.html) to learn how to make [this selector map](http://bl.ocks.org/ohasselblad/b1a6290d109391e75880)!
-
-
-#### Part 2: [Elephant Tracking Data](https://auremoser.cartodb.com/viz/95ea6526-2695-11e6-a16c-0ecfd53eb7d3/public_map)
-
-[Movebank.org](https://www.movebank.org/) has a lots animal tracking data. To get our data, I went to Tracking Data Map, then searched for "Loxodonta africana". But you can easily import it into your account by copying the link below.
-
-We'll be making this map:
-
-![elephant map](https://raw.githubusercontent.com/auremoser/extract-15/master/img/elephant.gif)
-
-
-1. Create a new Map
-2. Import the data into your account from this link:
-```html
-http://aureliamoser.cartodb.com/api/v2/sql?q=SELECT%20*%20FROM%20elephant_movements&format=geojson&filename=elephant_movements
-```
-
-### Animated Elephant Movements
-
-We can see our elephant move around with a Torque visualization.
-
-### Multilayer map with the same data used differently
-
-Let's visualize roughly the paths that the elephants take from point to point. These will be best-guess lines as we don't know the intermediate points. They represent linear interpolations between consecutive points.
-
-We can easily do this with some SQL and PostGIS by pasting in the following command and running it:
-
-```sql
-SELECT 
-  ST_Transform(
-    ST_MakeLine(
-      the_geom ORDER BY timestamp),
-    3857
-  ) As the_geom_webmercator  
-FROM 
-  elephant_movements
-```
-
-and apply the following CartoCSS to visualize our lines better:
-
-```css
-#elephant_movements{
-  line-color: #41c491;
-  line-width: 1;
-  line-opacity: 0.7;
-  line-smooth: 1.4;
-  line-clip: true;
-  line-dasharray: 2, 3, 2;
-  line-comp-op: multiply;
-}
-```
-
-![elephant map](https://raw.githubusercontent.com/auremoser/extract-15/master/img/e-1.jpg)
-
-We can get a more nuanced view of the data by using composite operations
-
-```sql
-SELECT 
-  ST_Transform(
-    ST_MakeLine(
-      a.the_geom,
-      b.the_geom)
-    ,3857
-  ) As the_geom_webmercator,
-  to_char(a.timestamp,'HH12:MI AM, DD Mon') || '--' || to_char(b.timestamp,'HH12:MI AM, DD Mon') As date_range,
-  a.cartodb_id
-FROM 
-  elephant_movements a
-JOIN 
-  elephant_movements b
-ON
-  a.cartodb_id + 1 = b.cartodb_id
-```
-
-And apply the following CartoCSS to show intensity when lines cross:
-
-```css
-#elephant_movements{
-  line-color: #41c491;
-  line-width: 2;
-  line-opacity: 0.7;
-  line-comp-op: multiply;
-  line-clip: true;
-  line-smooth: 1.4;
-}
-```
-![elephant map](https://raw.githubusercontent.com/auremoser/ipam-16/master/img/ele-sql.png)
 
 ### RESOURCES
 
