@@ -554,11 +554,11 @@ Style:
 
 In order to style all countries by categories and using a pattern file follow these instructions:
 
-  1. Go back to *LAYERS* pane
-  2. Click on *Countries* layer
-  3. Go to *STYLE* tab
-  4. Open CartoCSS view by clickin the slider button
-  5. Apply this code:
+* Go back to *LAYERS* pane
+* Click on *Countries* layer
+* Go to *STYLE* tab
+* Open CartoCSS view by clickin the slider button
+* Apply this code:
 
   ```css
   #layer{
@@ -624,24 +624,22 @@ In order to style *Ocean* layer:
 
 Finally, go back to *LAYERS* pane to style the basemap:
 
-  1. Click on *Positron*.
-  2. Set *COLOR* as *Source*
-  3. Set `#c3d1c7` as *HEX* value.
-
+* Click on *Positron*.
+* Set *COLOR* as *Source*
+* Set `#c3d1c7` as *HEX* value.
 
 ![africa basemap](https://raw.githubusercontent.com/auremoser/ams-maps-17/master/img/africa-basemap.png)
 
 ## Publish
 
-+ Go back to *LAYERS* pane in order to share your map:
-  1. Click on *SHARE`
-  2. Click on *PUBLISH* blue button
-  3. Click on *PUBLISH* (below)
-  3. Copy the link and paste it in a new browser tab: [https://auremoser.carto.com/builder/3547901b-c69d-4375-b868-afbd86e651b3/embed](https://auremoser.carto.com/builder/3547901b-c69d-4375-b868-afbd86e651b3/embed)
+Go back to *LAYERS* pane in order to share your map:
 
+* Click on *SHARE*
+* Click on *PUBLISH* blue button
+* Click on *PUBLISH* (below)
+* Copy the link and paste it in a new browser tab: [https://auremoser.carto.com/builder/3547901b-c69d-4375-b868-afbd86e651b3/embed](https://auremoser.carto.com/builder/3547901b-c69d-4375-b868-afbd86e651b3/embed)
 
 ![africa final map](https://raw.githubusercontent.com/auremoser/ams-maps-17/master/img/africa-final.png)
-
 
 
 ### RESOURCES
