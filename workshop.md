@@ -38,10 +38,9 @@ This workshop will be a light introduction to mapping with open source tools, fe
 		+ Tell Time/Stories: Odyssey + Torque
 		+ Partner Graphics: Graphs + Charts
 4. **Building a Visual Narrative**
-	+ Part 0: [Geology Data: OSM](http://cdb.io/1UPs2Nw)
-	+ Part 1: [Earthquake Data](https://auremoser.cartodb.com/viz/f401fa80-2699-11e6-a0ea-0e3ff518bd15/public_map)
+	+ Part 1: [Spatial Analysis](https://auremoser.carto.com/builder/f401fa80-2699-11e6-a0ea-0e3ff518bd15/embed)
 		+ [Earthquake Selector Block](http://bl.ocks.org/ohasselblad/b1a6290d109391e75880)
-	+ Part 2: [Elephant Migration Data](https://auremoser.cartodb.com/viz/95ea6526-2695-11e6-a16c-0ecfd53eb7d3/public_map)
+	+ Part 2: [Special Styling](https://auremoser.carto.com/builder/3547901b-c69d-4375-b868-afbd86e651b3/embed)
 5. **Resources**
 
 ### Mapping Basics
@@ -349,7 +348,7 @@ Election response in Argentina [post-primary election](https://team.cartodb.com/
 2. [The Sounds of 11M](http://www.cadenaser.com/sonidos-11m/)
 3. [Berlin Wall Historic Tour](http://bl.ocks.org/namessanti/raw/d5cf706f68b7c6dce9a3/#3)
 
-##### GRAPHS + CHARTS
+### GRAPHS + CHARTS
 
 You can use CartoDB's SQL API to query your data and pull it into any charting library of your choosing.
 
@@ -373,11 +372,13 @@ Type | Title | Link/Demo | BlogPost
 
 ## Building a Narrative
 
-### Part 1: [Earthquake Mapping Data](https://auremoser.carto.com/builder/f401fa80-2699-11e6-a0ea-0e3ff518bd15/embed)
+### Part 1: [Spatial Analysis](https://auremoser.carto.com/builder/f401fa80-2699-11e6-a0ea-0e3ff518bd15/embed)
 
 We're going to visualize earthquake data to explore some of the mapping options available to us with a variety of data types.
 
 ![Earthquakes + Faults](https://raw.githubusercontent.com/auremoser/extract-15/master/img/quakes.jpg)
+
+## Data Import
 
 Copy the link to the data here (don't download):
 
@@ -388,8 +389,6 @@ http://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_month.csv
 Import it into your account like this:
 
 ![add layer](https://raw.githubusercontent.com/auremoser/extract-15/master/img/dataimport.gif)
-
-**MAKE A MULTILAYER MAP**
 
 Now that we've made a map with our earthquakes, let's put a layer of earthquake faults below as a reference.
 
@@ -405,13 +404,14 @@ Looking at the metadata, we could visualize the layers using the slip code attri
 
 ![Multilayer](https://raw.githubusercontent.com/auremoser/ams-maps-17/master/img/quake-faults.png)
 
+## SQL + Spatial Processing
 **SPATIAL PROCESSING + SQL**
 
 CartoDB is a tool for geospatial data manipulation and visualization.
 
 SQL is a language for data manipulation. PostGIS is an extension to SQL that has the power to manipulate geospatial data.
 
-#### Basic Syntax
+### Basic SQL Syntax
 
 The most basic statement is:
 
@@ -462,9 +462,9 @@ LIMIT
 
 ![Sql](https://raw.githubusercontent.com/auremoser/ams-maps-17/master/img/quakes.png)
 
-#### the_geom, the_geom_webmercator, and cartodb_id
+### Quirks of Carto
 
-There are two special columns in CartoDB:
+There are two special columns in Carto:
 
 1. `the_geom`
 2. `the_geom_webmercator`
@@ -487,7 +487,7 @@ FROM
   all_month
 ```
 
-##### Functions
+### SQL/POSTGIS Functions
 
 + [Many mathematical functions and constants](http://www.postgresql.org/docs/9.3/static/functions-math.html)
 + [Basic tutorial on using them](http://www.postgresql.org/docs/9.3/static/tutorial-sql.html)
@@ -507,14 +507,13 @@ GROUP BY
   net
 ```
 
-### Part 2: [Special Styling](https://auremoser.carto.com/builder/3547901b-c69d-4375-b868-afbd86e651b3/embed)
+## Part 2: [Special Styling](https://auremoser.carto.com/builder/3547901b-c69d-4375-b868-afbd86e651b3/embed)
 
 Sometimes you want to provide extra styling flair to maps, and you can do that in CartoCSS and SQL.
 
 We'll do something not unlike this inspiration print map:
 
 ![submarine cable map](https://raw.githubusercontent.com/auremoser/ams-maps-17/master/img/submarinecablemap.png)
-
 
 ## Data + Tiles
 
@@ -523,45 +522,45 @@ We'll do something not unlike this inspiration print map:
 
 ## Data Import
 
-+ Import `.carto` file into your account - it's a zip package with a couple of layers
-+ Open the map
-+ Rename your map as *Vintage Africa Map*.
-+ Order and rename your layers as follows:
-  1. *ne_50m_admin_0_countries* > *Countries*
-  2. *continent* > *Continent*
-  3. *ne_50m_ocean* > *Ocean*
-+ Select Africa:
-  1. Click on *ADD ANALYSIS* just below *Continent* layer name
-  2. Select *Filter by column value*
-  3. Click on *ADD ANALYSIS*
-  4. Set parameters as folows:
-    * *COLUMN*: `continent`
-    * *INPUT*: `Africa`
-    * *RESULT*: *Show*
-  5. Click on *APPLY*
+Import `.carto` file above into your account - it's a zip package with a couple of layers
+* Open the map
+* Rename your map as *Vintage Africa Map*.
+* Order and rename your layers as follows:
+  * *ne_50m_admin_0_countries* > *Countries*
+  * *continent* > *Continent*
+  * *ne_50m_ocean* > *Ocean*
 
-## CSS Effects
+Select Africa:
 
-+ Create coastal ripple effect:
-  1. Click on *+* symbol button to add a new analysis 
-  2. Select *Create  Areas of influence*
-  3. Click on *ADD ANALYSIS*
-  4. Set parameters as folows:
-    * *TYPE*: *Distance*
-    * *UNITS*: *miles*
-    * *RADIUS*: `100`
-    * *TRACTS*: `6`
-    * *BOUNDARIES*: *Intact*
-  5. Hit *APPLY*
+* Click on *ADD ANALYSIS* just below *Continent* layer name
+* Select *Filter by column value*
+* Click on *ADD ANALYSIS*
+* Set parameters as folows:
+  * *COLUMN*: `continent`
+  * *INPUT*: `Africa`
+  * *RESULT*: *Show*
+* Click on *APPLY*
 
-<br>
-![ripples](https://github.com/CartoDB/cdmx-training/blob/master/03-cartography/exercises/img/ripples.png)
-<br>
+## Styling
 
-* Style:
-  1. Go to *STYLE* tab
-  2. Use the slider button to open CartoCSS view
-  3. Apply this code:
+Create coastal ripple effect:
+
+* Click on *+* symbol button to add a new analysis 
+* Select *Create  Areas of influence*
+* Click on *ADD ANALYSIS*
+* Set parameters as folows:
+  * *TYPE*: *Distance*
+  * *UNITS*: *miles*
+  * *RADIUS*: `100`
+  * *TRACTS*: `6`
+  * *BOUNDARIES*: *Intact*
+* Hit *APPLY*
+
+Style:
+
+* Go to *STYLE* tab
+* Use the slider button to open CartoCSS view
+* Apply this code:
 
   ```css
   #layer{
@@ -571,9 +570,10 @@ We'll do something not unlike this inspiration print map:
   }
   ```
 
-### Global styles
+### Global Styles
 
-+ In order to style all countries by categories and using a pattern file follow these instructions:
+In order to style all countries by categories and using a pattern file follow these instructions:
+
   1. Go back to *LAYERS* pane
   2. Click on *Countries* layer
   3. Go to *STYLE* tab
@@ -593,7 +593,7 @@ We'll do something not unlike this inspiration print map:
 
 ### Africa Styles
 
-+ In order to highlight African countries add the following snippet at the end of the CartoCSS code. It will improve some cartographic-related issues, as line's color and offset, as well as labels.
+In order to highlight African countries add the following snippet at the end of the CartoCSS code. It will improve some cartographic-related issues, as line's color and offset, as well as labels.
 
 ```css
   [continent='Africa']{ 
@@ -622,7 +622,7 @@ We'll do something not unlike this inspiration print map:
   }
 ```
 
-#### Ocean Styles
+### Ocean Styles
 
 + In order to style *Ocean* layer:
   1. Go back to *LAYERS* pane
@@ -639,9 +639,10 @@ We'll do something not unlike this inspiration print map:
 }
 ```
 
-#### Basemap
+### Basemap
 
-+ Finally, go back to *LAYERS* pane to style the basemap:
+Finally, go back to *LAYERS* pane to style the basemap:
+
   1. Click on *Positron*.
   2. Set *COLOR* as *Source*
   3. Set `#c3d1c7` as *HEX* value.
@@ -660,7 +661,6 @@ We'll do something not unlike this inspiration print map:
 <br>
 ![africa final map](https://raw.githubusercontent.com/auremoser/ams-maps-17/master/img/africa-final.png)
 <br>
-
 
 
 ### RESOURCES
