@@ -7,6 +7,8 @@ Instagram [@chazhutton](https://medium.com/@chazhutton/drawing-the-map-of-every-
 
 Slides here: <https://mzl.la/ams-maps>
 
+This workshop reviews some principles of making webmaps: mapping basics, data and tools. It follows with  provides two exercises to focus on **spatial analysis** (munging geospatial data with SQL), and **special styling** (applying styllistic flourish to maps with CartoCSS).
+
 Cool maps shared:
 
 * [Cholera Map AMS](http://www.kolerekaart.nl/#da)

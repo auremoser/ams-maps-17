@@ -37,7 +37,7 @@ This workshop will be a light introduction to mapping with open source tools, fe
 	+ Mapping Movement
 		+ Tell Time/Stories: Odyssey + Torque
 		+ Partner Graphics: Graphs + Charts
-4. **Building a Visual Narrative**
+4. **Designing your GeoCanvas**
 	+ Part 1: [Spatial Analysis](https://auremoser.carto.com/builder/f401fa80-2699-11e6-a0ea-0e3ff518bd15/embed)
 	+ Part 2: [Special Styling](https://auremoser.carto.com/builder/3547901b-c69d-4375-b868-afbd86e651b3/embed)
 5. **Resources**
@@ -350,7 +350,7 @@ Type | Title | Link/Demo | BlogPost
 [Chart.js](http://www.chartjs.org/) Line Graph | Tornado Data  | [Andrew's Block](http://bl.ocks.org/andrewxhill/9134155)
 [Plot.ly](https://plot.ly/) | Earthquake Data  | [Plotly Tutorial](https://plot.ly/ipython-notebooks/cartodb/) | [CartoDB Blog](http://blog.cartodb.com/plotly/)
 
-# Building a Visual Narrative
+# Designing Your GeoCanvas
 
 ## Part 1: [Spatial Analysis](https://auremoser.carto.com/builder/f401fa80-2699-11e6-a0ea-0e3ff518bd15/embed)
 
