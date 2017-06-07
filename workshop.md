@@ -1,7 +1,7 @@
 ## Web Mapping with Open Source Tools
-### [Graphic Hunters](http://graphichunters.nl/meet-up-met-aurelia-moser/)
+### [Graphic Hunters](http://graphichunters.nl/meet-up-met-aurelia-moser/) + [Maptime](https://www.meetup.com/Maptime-AMS/events/240413053/)
 #### Aurelia Moser, [@auremoser](https://twitter.com/auremoser), aurelia@mozillafoundation.org
-**May 11th, 2017**
+**June 7th, 2017**
 
 ![EveryCity](https://raw.githubusercontent.com/auremoser/ipam-16/master/img/every-city.jpeg)
 
@@ -50,17 +50,17 @@ This workshop will be a light introduction to mapping with open source tools, fe
 
 Where are you? If I gave you directions here, you could say you were at:
 
-> Mmousse Kromboomsloot 8hs 1011 GV Amsterdam
+> Waag Society, Nieuwmarkt 4, 1012 CR Amsterdam
 
 But if I wanted to describe the location as a point on a map, I might describe the same location using latitude and longitude:
 
-> 52° 22' 20.6508''N 4° 54' 8.784'' E
+> 52° 22' 22.0008'' N, 4° 54' 1.1376'' E
 
-This reads as "52 degrees, 22 minutes and 20.65 seconds North, 4 degrees, 54 minutes and 8.78 seconds East."
+This reads as "52 degrees, 22 minutes and 22.00 seconds North, 4 degrees, 54 minutes and 1.14 seconds East."
 
 We describe locations with a [spatiotemporal notation](https://en.wikipedia.org/wiki/Longitude_(book)), it's also somewhat obscure. So let's describe the same place using longitude and longitude but using decimal degrees instead of minutes and seconds. There are a number of conversion tools available online to do this:
 
-> 52.372403, 4.90244
+> 52.370224, 4.911189
 
 ### Types + Topics
 
@@ -101,7 +101,7 @@ You can fork the GDELT hourly synced data set from the Carto DataLibrary and add
 
 ![County Chart](https://raw.githubusercontent.com/auremoser/hasadna/master/img/chart.jpg)
 
-Source: [Geogia County Car Crash Counts](http://bl.ocks.org/auremoser/6236a61e5383ab0bc71d), C3.JS
+Source: [Georgia County Car Crash Counts](http://bl.ocks.org/auremoser/6236a61e5383ab0bc71d), C3.JS
 
 #### Comparison Narrative
 
@@ -350,9 +350,9 @@ Type | Title | Link/Demo | BlogPost
 [Chart.js](http://www.chartjs.org/) Line Graph | Tornado Data  | [Andrew's Block](http://bl.ocks.org/andrewxhill/9134155)
 [Plot.ly](https://plot.ly/) | Earthquake Data  | [Plotly Tutorial](https://plot.ly/ipython-notebooks/cartodb/) | [CartoDB Blog](http://blog.cartodb.com/plotly/)
 
-## Building a Visual Narrative
+# Building a Visual Narrative
 
-### Part 1: [Spatial Analysis](https://auremoser.carto.com/builder/f401fa80-2699-11e6-a0ea-0e3ff518bd15/embed)
+## Part 1: [Spatial Analysis](https://auremoser.carto.com/builder/f401fa80-2699-11e6-a0ea-0e3ff518bd15/embed)
 
 We're going to visualize earthquake data to explore some of the mapping options available to us with a variety of data types.
 
